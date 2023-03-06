@@ -1,12 +1,18 @@
 import { ACTIONS } from "../actions";
 import { contactList, messagesList } from "../Data";
+import "react-notifications/lib/notifications.css";
+import { loadState } from "../localStorage";
 
 // INITIAL STATES
-const initialState = {
+//*if loadState gives undefined we have backup initialstate
+const initialState = loadState() || {
   contactList: contactList,
   messageList: { ...messagesList },
   showAddModal: false,
   searchResult: {},
+  showNotification: false,
+  notification_message: "",
+  notification_type: "",
 };
 
 //REDUCER FUNCTIONS
@@ -43,6 +49,9 @@ export default function chatReducer(state = initialState, action) {
         ...state,
         messageList: userMsgArray,
         contactList: newContactInfo,
+        showNotification: true,
+        notification_message: "Message Sent",
+        notification_type: "success",
       };
 
     //*when the add button is clicked we change state value to show add modal
@@ -61,12 +70,19 @@ export default function chatReducer(state = initialState, action) {
           ...state,
           searchResult: result,
           showSearchResult: true,
+          showNotification: true,
+          notification_message: "contact found",
+          notification_type: "success",
         };
       } else {
+        console.log("else called");
         return {
           ...state,
           searchResult: {},
           showSearchResult: false,
+          showNotification: true,
+          notification_message: "No contact found",
+          notification_type: "error",
         };
       }
 

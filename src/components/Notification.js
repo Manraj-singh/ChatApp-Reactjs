@@ -1,16 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import "react-notifications/lib/notifications.css";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 import { connect } from "react-redux";
-import { useToasts } from "react-toast-notifications";
-function Notifications() {
-  const { addToast } = useToasts();
 
-  //   useEffect(() => {
-  //     console.log("rendered");
-  //     addToast("test", {
-  //       appearance: "success",
-  //     });
-  //   }, []);
+function Notification({ showNotification, Nmessage, Ntype }) {
+  const createNotification = (type, message) => {
+    switch (type) {
+      case "info":
+        NotificationManager.info(message);
+        return;
+      case "success":
+        NotificationManager.success(message);
+        break;
+      case "warning":
+        NotificationManager.warning(message, 3000);
+        break;
+      case "error":
+        NotificationManager.error(message);
 
-  return null;
+        break;
+      default:
+        break;
+    }
+  };
+  useEffect(() => {
+    if (showNotification) {
+      createNotification(Ntype, Nmessage);
+      console.log("called");
+    }
+  }, [Nmessage, Ntype]);
+  return (
+    <>
+      {" "}
+      <NotificationContainer />
+    </>
+  );
 }
-export default connect()(Notifications);
+
+function mapStateToProps(state) {
+  console.log(state);
+  return {
+    showNotification: state.showNotification,
+    Nmessage: state.notification_message,
+    Ntype: state.notification_type,
+  };
+}
+export default connect(mapStateToProps)(Notification);
