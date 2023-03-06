@@ -25,7 +25,7 @@ export default function chatReducer(state = initialState, action) {
       let userMsgArray = { ...state.messageList };
       let contactInfo = [...state.contactList];
       const newContactInfo = contactInfo.map((usr) => {
-        if (usr.id == id) {
+        if (usr.id === id) {
           usr.lastText = text;
         }
         return usr;

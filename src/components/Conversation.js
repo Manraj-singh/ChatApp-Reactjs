@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { useParams } from "react-router";
+import { useLocation, useParams } from "react-router";
 import styled from "styled-components";
 import { sendMessage } from "../actions";
 
@@ -29,15 +29,21 @@ const Conversation = ({
 }) => {
   //*Gets the user from params to display its messages
   const { userId = "u1" } = useParams();
+  console.log("location", useLocation());
   //Local states
   const [messagesList, setMessagesList] = useState([]);
-  const [currUser, setCurrUser] = useState({});
+  const [currUser, setCurrUser] = useState({
+    profilePic: "https://img.icons8.com/doodle/1x/name.png",
+    name: "user",
+    online: "online",
+  });
   const [newMsg, setNewMsg] = useState("");
 
   useEffect(() => {
     const updatedList = messageList[userId] ? messageList[userId] : [];
     setMessagesList(updatedList);
-    const usr = contactList.find((usr) => usr.id === userId);
+    const usr = contactList.find((usr) => usr.id === userId || "u1");
+    console.log("conversation user", usr);
     setCurrUser(usr);
   }, [userId, messageList[userId]]);
 
