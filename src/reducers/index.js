@@ -75,7 +75,6 @@ export default function chatReducer(state = initialState, action) {
           notification_type: "success",
         };
       } else {
-        console.log("else called");
         return {
           ...state,
           searchResult: {},

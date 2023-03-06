@@ -29,7 +29,6 @@ function Notification({ showNotification, Nmessage, Ntype }) {
   useEffect(() => {
     if (showNotification) {
       createNotification(Ntype, Nmessage);
-      console.log("called");
     }
   }, [Nmessage, Ntype]);
   return (
@@ -41,7 +40,6 @@ function Notification({ showNotification, Nmessage, Ntype }) {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
     showNotification: state.showNotification,
     Nmessage: state.notification_message,

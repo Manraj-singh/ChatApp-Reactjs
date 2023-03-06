@@ -29,7 +29,6 @@ const Conversation = ({
 }) => {
   //*Gets the user from params to display its messages
   const { userId = "u1" } = useParams();
-  console.log("location", useLocation());
   //Local states
   const [messagesList, setMessagesList] = useState([]);
   const [currUser, setCurrUser] = useState({
@@ -42,8 +41,7 @@ const Conversation = ({
   useEffect(() => {
     const updatedList = messageList[userId] ? messageList[userId] : [];
     setMessagesList(updatedList);
-    const usr = contactList.find((usr) => usr.id === userId || "u1");
-    console.log("conversation user", usr);
+    const usr = contactList.find((usr) => usr.id === userId);
     setCurrUser(usr);
   }, [userId, messageList[userId]]);
 
