@@ -1,13 +1,248 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+a {
+  text-decoration: none;
+}
+.App {
+  text-align: center;
+}
+
+.appContainer {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%;
+  background: #f8f9fb;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* ------------------CONTACT LIST COMPONENT STYLES BEGIN------------------- */
+.contactListContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  flex: 0.8;
+  max-width: 360px;
+}
+
+.profileInfoDiv {
+  display: flex;
+  flex-direction: row;
+  background: #ededed;
+  padding: 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.settingicon {
+  height: 50%;
+}
+.profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profileIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 20px;
+}
+
+.searchBox {
+  display: flex;
+  background: #f6f6f6;
+
+  padding: 10px;
+}
+.inputBox {
+  display: flex;
+  /* padding: 20px 8px; */
+  /* margin-bottom: 15px; */
+}
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  background: #f0eded;
+  border-radius: 16px;
+  width: 100%;
+  padding: 20px 8px;
+}
+.resultBox {
+  background: #f0eded;
+  border-radius: 16px;
+  padding: 20px 8px;
+}
+.searchIcon {
+  width: 28px;
+  height: 28px;
+  padding-left: 10px;
+}
+.searchInput {
+  width: 100%;
+  outline: none;
+  border: none;
+  padding-left: 15px;
+  font-size: 17px;
+  margin-left: 10px;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #d1d1d1;
+  border-bottom-right-radius: 13px;
+  background: white;
+  cursor: pointer;
+  padding: 15px 12px;
+  border-bottom-left-radius: 10px;
+}
+.contactItem:hover {
+  background-color: ghostwhite;
+}
+
+.contactName {
+  width: 100%;
+  font-size: 16px;
+  color: black;
+}
+
+.messageText {
+  width: 95%;
+  font-size: 14px;
+  margin-top: 3px;
+  color: rgba (0, 0, 0, 0.8);
+  overflow: hidden;
+}
+.messageTime {
+  font-size: small;
+  color: grey;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 19px;
+  max-width: 220px;
+}
+
+.addConversation {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+/* ------------------CONTACT LIST COMPONENT STYLES END------------------- */
+
+/* ------------------CONVERSATIONS COMPONENT STYLES BEGIN------------------- */
+.conversationsContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 2;
+  background: #f6f7f8;
+}
+.profileHeader {
+  display: flex;
+  flex-direction: row;
+  background: #ededed;
+  padding: 15px;
+  align-items: center;
+  gap: 10px;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.chatBox {
+  display: flex;
+  background: #f0f0f0;
+  padding: 10px;
+  align-items: center;
+  bottom: 0;
+}
+
+.emojiImage {
+  width: 30px;
+  height: 28px;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.messageContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #e0dcd9;
+}
+
+/* ------------------CONVERSATIONS COMPONENT STYLES END------------------- */
+
+/* ------------------MODAL COMPONENT STYLES BEGIN------------------- */
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(222, 222, 222, 0.7);
+}
+.modalContainer {
+  margin: 0 auto;
+
+  position: relative;
+  width: 58%;
+}
+/* ------------------MODAL COMPONENT STYLES END------------------- */
