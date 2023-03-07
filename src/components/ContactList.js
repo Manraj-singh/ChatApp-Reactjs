@@ -8,6 +8,7 @@ import {
   showAddConversationModal,
 } from "../actions";
 import AddConversationModal from "./AddConversationModal";
+import Notification from "./Notification";
 
 //*getting props from mapStateToProps
 //*This is a mini component for ContactListComponent to render individual contacts
@@ -47,9 +48,6 @@ const ContactListComponent = ({
   //this function is called when clicked on search contact icon
   //it dispatches to search and display the contact
   const handleSearch = () => {
-    if (searchName.length === 0) {
-      return;
-    }
     dispatch(searchContact(searchName));
   };
 

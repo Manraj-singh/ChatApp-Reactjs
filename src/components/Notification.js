@@ -16,7 +16,7 @@ function Notification({ showNotification, Nmessage, Ntype }) {
         NotificationManager.success(message);
         break;
       case "warning":
-        NotificationManager.warning(message, 3000);
+        NotificationManager.warning(message);
         break;
       case "error":
         NotificationManager.error(message);
@@ -30,7 +30,7 @@ function Notification({ showNotification, Nmessage, Ntype }) {
     if (showNotification) {
       createNotification(Ntype, Nmessage);
     }
-  }, [Nmessage, Ntype]);
+  }, [Nmessage, Ntype, showNotification]);
   return (
     <>
       {" "}

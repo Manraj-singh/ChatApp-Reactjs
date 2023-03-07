@@ -60,6 +60,15 @@ export default function chatReducer(state = initialState, action) {
 
     //* here we get the contact name to search ,if the contact exist we show result else we dont show it
     case ACTIONS.SEARCH_CONTACT:
+      //if contact typed is less than 2 letters return
+      if (action.contactName.length < 2) {
+        return {
+          ...state,
+          showNotification: true,
+          notification_message: "Enter atleast two letters to search a contact",
+          notification_type: "warning",
+        };
+      }
       const cList = [...state.contactList];
       const result = cList.find((contact) =>
         contact.name.toLowerCase().includes(action.contactName.toLowerCase())
