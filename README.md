@@ -1,72 +1,86 @@
-#Deployed on https://react-chat-app-manraj.netlify.app/
 
-## Getting Started with Create React App
+# ChatAPP using React,Redux
+**Deployed on :**  https://react-chat-app-manraj.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Overview :** A chat app mockup made using react,redux .
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
+## Tech Stack
+
+*REACT.JS , REDUX*
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Manraj-singh/ChatApp-Reactjs.git
+```
+
+install the nodemodules from package.json  :
+
+```bash
+  npm install
+```
+
+finally start it on your local server
+
+```bash
+  npm start
+```
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  Assuming as a dummy logged in user with a json file to load some dummy data in the project.
+- Functionality:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  - Search : conversations should be searchable by contact name.
 
-### `npm run eject`
+  - Left sidebar:
+    Shows all the conversations created here and 
+    each conversation has contact name and some text of the last message in the chat
+  - Create conversation button:
+    On clicking this opens a pop up and loads all the contacts (from the dummy data.json/js file).
+    On clicking the contact it start a new conversation (if no conversation was previously started). Or opens the existing conversation for that contact.
+  - Right side view
+    Show the current selected conversation messages and able to send a message in the conversation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Folder structure
+```
+src
+   |-- Data.js    
+   |-- actions    
+   |   |-- index.js
+   |-- components
+   |   |-- AddConversationModal.js
+   |   |-- App.js
+   |   |-- ContactList.js
+   |   |-- Conversation.js
+   |   |-- Notification.js
+   |-- index.css
+   |-- index.js
+   |-- localStorage.js
+   |-- reducers
+   |   |-- index.js
+```
 
-## Learn More
+overview: 
+- data.js file contains all the dummy data
+- action folder contains the action types and action creators
+- components folder has all the components created
+- reducer folder has the reducer functions which is called by dipatching action
+- localStorage file has code to make store persistant
+- index.css file has all the styles for the App
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+basic flow  : dipatching a action from component  > goes to action creator for formatting and returning type and payload > calls the reducer fucntion as per type  > updates the store  > component gets rerendered as per new state 
